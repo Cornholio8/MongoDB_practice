@@ -9,9 +9,6 @@ describe('Employee', () => {
       emp.validate(err => {
         expect(err.errors).to.exist;
       });
-      after(() => {
-        mongoose.models = {};
-      });
     });
 
     it('should throw an error if arg is not a string', () => {
@@ -24,9 +21,6 @@ describe('Employee', () => {
         });
         emp.validate(err => {
           expect(err.errors).to.exist;
-        });
-        after(() => {
-          mongoose.models = {};
         });
       }
     });
@@ -42,9 +36,6 @@ describe('Employee', () => {
         emp.validate(err => {
           expect(err.errors).to.exist;
         });
-        after(() => {
-          mongoose.models = {};
-        });
       }
     });
     
@@ -57,9 +48,6 @@ describe('Employee', () => {
         const emp = new Employee(employee);
         emp.validate(err => {
           expect(err).to.not.exist;
-        });
-        after(() => {
-          mongoose.models = {};
         });
       }
     });
